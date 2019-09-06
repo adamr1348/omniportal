@@ -5,7 +5,6 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            courses: []
         }
     }
 
@@ -21,7 +20,7 @@ export default class App extends Component {
                     <li>school</li>
                     <li>school system (UC, CSU, etc) (may not be needed)</li>
                 </ul>
-                <ClassList classes={this.state.courses}></ClassList>
+                <ClassList></ClassList>
             </div>
         )
     }
