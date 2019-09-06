@@ -1,6 +1,8 @@
 const faker = require('faker');
 const fs = require('fs');
-const file = fs.createWriteStream("./seed_files/classesSeed.csv");
+const schoolFile = fs.createWriteStream('./seed_fils/schoolsSeed.csv');
+const subjectFile = fs.createWriteStream('./seed_files/subjectsSeed.csv');
+const classFile = fs.createWriteStream("./seed_files/classesSeed.csv");
 
 const schools       = ['UCLA', 'USC', 'UCSB', 'Stanford', 'Harvard', 'Yale', 'Oxford', 'Brown', 'Pepperdine', 'New College'];
 const subjects      = ['HIST', 'COMP', 'MATH', 'PHIL', 'ENG', 'STAT', 'CHEM', 'BIO', 'POLI'];
@@ -9,7 +11,7 @@ const units         = [1, 2, 3, 4, 5, 6, 7];
 const terms         = ['quarter', 'semester'];
 const classesHeader = 'school|subject|courseNum|title|description|units|termType|price|startDate|endDate\n'
 
-const oneEntry = () => {
+const oneClassEntry = () => {
     let entry = {
         school      : schools[Math.floor(Math.random() * 10)],
         subject     : subjects[Math.floor(Math.random() * 9)],
@@ -64,4 +66,4 @@ function streamFunc(max, writer, callback, headerline) {
     }
 }
 
-streamFunc(1000000, file, oneEntry, classesHeader)
+streamFunc(1000000, classFile, oneClassEntry, classesHeader)

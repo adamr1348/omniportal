@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ClassList from './components/classList.jsx';
 
 export default class App extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ export default class App extends Component {
                     <li>school</li>
                     <li>school system (UC, CSU, etc) (may not be needed)</li>
                 </ul>
-                class list (pagenated)
+                <ClassList classes={this.state.courses}></ClassList>
             </div>
         )
     }
