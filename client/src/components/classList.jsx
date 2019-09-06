@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ClassListEntry from './classListEntry.jsx';
 
 export default class ClassList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            headerLine  : ['School', 'Subject', 'Class Name', 'Course Number', 'Class Description', 'Units', 'Term', 'Start Date', 'End Date', 'Price'],
+            headerLine  : ['School', 'Subject', 'Course Number', 'Class Name', 'Class Description', 'Units', 'Term', 'Price', 'Start Date', 'End Date'],
             courses     : [],
             filerString : ''
         }
@@ -17,7 +18,7 @@ export default class ClassList extends Component {
             .then(data => {
                 this.setState({
                     courses: data.data
-                }, () => console.log(this.state.courses))
+                })
             })
     }
 
@@ -29,6 +30,10 @@ export default class ClassList extends Component {
                         return <th key={index}>{item}</th>
                     })}
                 </tr>
+                {this.state.courses.map((item, index) => {
+                    let styling = index % 2 === 0 ? 'even' : 'odd'
+                    return <ClassListEntry class={item} key={index} className={styling}></ClassListEntry>
+                })}
             </table>
         )
     }

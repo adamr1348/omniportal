@@ -18,7 +18,6 @@ export default class App extends Component {
                 <ul>
                     <li>department</li>
                     <li>school</li>
-                    <li>school system (UC, CSU, etc) (may not be needed)</li>
                 </ul>
                 <ClassList></ClassList>
             </div>
