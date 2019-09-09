@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ClassListEntry from './classListEntry.jsx';
+import { parse } from 'url';
 
 export default class ClassList extends Component {
     constructor(props) {
@@ -16,9 +17,18 @@ export default class ClassList extends Component {
         axios
             .get('/api/classes')
             .then(data => {
+                let classes = data.data;
+                const parseDate = (date) => {
+                    return new Date(date.split('T')[0]).toDateString().slice(4);
+                }
+                classes = classes.map(item => {
+                    item.startdate = parseDate(item.startdate);
+                    item.enddate = parseDate(item.enddate);
+                    return item;
+                })
                 this.setState({
                     courses: data.data
-                })
+                }, () => console.log(this.state.courses[0].startdate))
             })
     }
 

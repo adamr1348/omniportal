@@ -14,7 +14,7 @@ export default class App extends Component {
                 Things needed:<br />
                 header (all pages)<br />
                 search bar<br />
-                filter dropdown/search bar for<br />
+                sort<br />
                 <ul>
                     <li>department</li>
                     <li>school</li>
