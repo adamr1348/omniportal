@@ -1,8 +1,8 @@
 const faker = require('faker');
 const fs = require('fs');
-const schoolFile = fs.createWriteStream('./seed_fils/schoolsSeed.csv');
-const subjectFile = fs.createWriteStream('./seed_files/subjectsSeed.csv');
-const classFile = fs.createWriteStream("./seed_files/classesSeed.csv");
+const schoolFile = fs.createWriteStream(__dirname + '/seed_files/schoolsSeed.csv');
+const subjectFile = fs.createWriteStream(__dirname + '/seed_files/subjectsSeed.csv');
+const classFile = fs.createWriteStream(__dirname + "/seed_files/classesSeed.csv");
 
 const schools       = ['UCLA', 'USC', 'UCSB', 'Stanford', 'Harvard', 'Yale', 'Oxford', 'Brown', 'Pepperdine', 'New College'];
 const subjects      = ['HIST', 'COMP', 'MATH', 'PHIL', 'ENG', 'STAT', 'CHEM', 'BIO', 'POLI'];
